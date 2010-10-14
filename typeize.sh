@@ -1,7 +1,7 @@
 #!/bin/bash
 
 helpme() {
-  echo -e "Error: ${0} usage:\n\n${0} <STRING>\n"
+  echo -e "Error: ${0} usage:\n\n${0} <STRING>\nfor best results, put quotes around <STRING>"
   exit 1
 }
 
@@ -15,7 +15,7 @@ delay() {
 }
 
 typeize() {
-  MyString="$@"
+  MyString="${*}"
   echo -n "size=${#MyString} "
   i=0
   while (( i < ${#MyString} ))
@@ -40,7 +40,7 @@ typeize() {
 
 if [[ ${#@} -gt 0 ]]
 then
-  typeize $@
+  typeize "${@}"
 else
   helpme
 fi
